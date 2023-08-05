@@ -45,8 +45,7 @@ function getComputedStyleProp(el, propName) {
     alertBox.style.opacity = '0';
 
     document.body.appendChild(alertBox);
-
-    // Animate the alert box using anime.js
+      
     const timeline = anime.timeline({
       easing: 'easeInOutQuad',
       duration: options.animationDuration,
@@ -136,7 +135,6 @@ function getComputedStyleProp(el, propName) {
     });
   }
 
-  // Show the animated dialog box on right-click
   document.addEventListener('contextmenu', function(event) {
     event.preventDefault();
     const x = event.clientX;
@@ -161,4 +159,3 @@ function getComputedStyleProp(el, propName) {
       fadeDuration: 500,
     });
   });
-
