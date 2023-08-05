@@ -1,3 +1,4 @@
+"use strict";
 function sanitizeInput(input) {
       return DOMPurify.sanitize(input);
     }
