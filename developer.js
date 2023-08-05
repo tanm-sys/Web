@@ -1,5 +1,4 @@
- // Disable right-click on the entire document
-  document.addEventListener('contextmenu', function (event) {
+document.addEventListener('contextmenu', function (event) {
     event.preventDefault();
     showAnimatedAlert('Right-clicking is disabled on this website.');
   });
@@ -21,7 +20,7 @@
 
     document.body.appendChild(alertBox);
 
-    // Animate the alert box using anime.js
+   
     anime({
       targets: alertBox,
       opacity: 1,
@@ -29,7 +28,7 @@
       easing: 'easeInOutQuad',
     });
 
-    // Hide the alert box after a delay
+  
     setTimeout(function () {
       anime({
         targets: alertBox,
