@@ -1,0 +1,49 @@
+.row{width:auto;padding:0}
+body#layout{position:relative;width:auto;max-width:100%;background-color:#fff;padding:95px 5px 0;margin:0 0 0 1px;border-width:1px 0 0;border-color:#eceff1}
+body#layout:before{content:'Casper - v1.0.0';position:absolute;top:0;left:5px;right:5px;height:95px;font-family:Roboto,sans-serif;font-size:23px;color:#263238;line-height:95px;text-align:center}
+body#layout div.section{display:block;background-color:#eceff1!important;margin:0 5px 10px!important;padding:16px 16px 18px!important;border:0}
+body#layout .no-items.section{display:block}
+body#layout .section h4{display:-webkit-box;font-size:14px;color:#263238;text-transform:uppercase;margin:0}
+body#layout .section h4:after{text-transform:initial;color:#757575;font-weight:400}
+body#layout .add_widget a{display:-webkit-box;color:#4385f5!important}
+body#layout .widget-wrap3{overflow:hidden}
+body#layout .widget-content{width:auto;max-width:none;max-height:none;margin:0;border:1px solid #e7e7e8;border-left:0}
+body#layout .locked-widget .widget-content{border-left:1px solid #4385f5}
+body#layout .locked-widget .widget-content:hover{border-left-color:#33a453}
+body#layout div.layout-title{display:-webkit-box;color:#757575}
+body#layout .widget .widget-content a.editlink{border-radius:2px}
+body#layout .visibility .editlink{background:#4385f5 url(https://1.bp.blogspot.com/--z1wepFalfQ/YOObl8avCFI/AAAAAAAAAE8/Z-iC0j0LLpo7u2ZpHvW0hGaHhBOvVYYaQCLcBGAsYHQ/s48/edit.png) no-repeat center!important;background-size:20px!important}
+body#layout .visibility .editlink:hover{background-color:#33a453!important}
+body#layout .draggable-widget .widget-wrap2{background:#4385f5 url(https://1.bp.blogspot.com/-ciJD7MVmo10/YORQlzt9a1I/AAAAAAAAAFk/L4fK5cgelFoWX9rZvGFKZdr1d_RM9kfjACLcBGAsYHQ/s68/drag.png) no-repeat 4px 50%!important;background-size:4px auto!important}
+body#layout .draggable-widget .widget-wrap1:hover .widget-wrap2{background-color:#33a453!important}
+body#layout .visibility .layout-widget-state.visible{background-image:url(https://1.bp.blogspot.com/-aPoC3YxQo6g/YOOeDVSsJqI/AAAAAAAAAFM/oyvPLSJVIRQpAu-g0gZL89g5Caq4_4DeQCLcBGAsYHQ/s48/visibility_on.png)!important;background-size:24px!important}
+body#layout .visibility .layout-widget-state.not-visible{background-image:url(https://1.bp.blogspot.com/-x_kkTMRQfHs/YOOeMUjTE8I/AAAAAAAAAFQ/RRj6YLBNuMEHwTB_81304fCxy8dl7h46gCLcBGAsYHQ/s48/visibility_off.png)!important;background-size:24px!important;opacity:1}
+body#layout div.layout-widget-description{display:none;font-size:11px;line-height:1.2em}
+body#layout #theme-options,body#layout #main-menu .widget{display:block!important}
+body#layout div.pbt-panel{background-color:rgba(67,133,245,0.15)!important;overflow:hidden!important}
+body#layout .pbt-panel .widget{float:left;width:49.5%;margin-right:1%}
+body#layout .pbt-panel .widget-content{border-color:#d5e3fc!important}
+body#layout .pbt-panel .HTML{margin-right:0}
+body#layout .pbt-panel div.layout-widget-description,body#layout .mobile-menu-toggle,body#layout .flex-right,body#layout .main-search{display:none}
+body#layout .flex-left{display:flex}
+body#layout .main-logo,body#layout .xa6af-main-menu{width:50%}
+body#layout #content-wrapper{padding:0;margin:0}
+body#layout #content-wrapper > .container{display:flex;margin:0}
+body#layout #main-wrapper{width:67%;padding:0}
+body#layout #sidebar-wrapper{width:33%;padding:0}
+body#layout #casper-about-section{overflow:hidden!important}
+body#layout #casper-about-section .widget{float:left;width:49.5%;margin-right:1%}
+body#layout #casper-about-section .LinkList{margin-right:0}
+body#layout .footer-bar .container{display:flex}
+body#layout #footer-menu,body#layout #footer-copyright{width:50%}
+body#layout .section > h4:after{font-size:12px}
+body#layout #pbt-panel > h4:after{content:' - Default Thumbnail, Date Format, Translate Months and More'}
+body#layout #main-logo > h4:after{content:' - Main Logo'}
+body#layout #xa6af-main-menu > h4:after{content:' - Menu Links and Sub Links'}
+body#layout #main > h4:after{content:' - Default Blog Posts, AdSense In-Feed, Comments and More'}
+body#layout #xa6af-related-posts > h4:after{content:' - Exclusive Non-Duplicate Post System'}
+body#layout #sidebar > h4:after{content:' - Default Gadgets'}
+body#layout #casper-about-section > h4:after{content:' - Site Logo, Description and Social Icons'}
+body#layout #footer-menu > h4:after{content:' - Custom Links'}
+body#layout:after{content:'Design by - ProBloggerTemplates.com';display:block;font-family:Roboto,sans-serif;font-size:14px;color:rgba(0,0,0,0.54);line-height:1;text-align:center;visibility:visible;padding:20px 0 30px}
+body#layout #hidden-widgets{display:none!important}
