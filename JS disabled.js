@@ -1,3 +1,4 @@
+"use strict";
 document.addEventListener("DOMContentLoaded", function() {
       var jsDisabledMessage = document.getElementById("js-disabled-message");
       jsDisabledMessage.style.display = "block"
