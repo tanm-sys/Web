@@ -1,4 +1,4 @@
- document.addEventListener('contextmenu', function (event) {
+document.addEventListener('contextmenu', function (event) {
     event.preventDefault();
     showAnimatedAlert('Right-clicking is disabled on this website.');
   });
@@ -29,7 +29,6 @@
 
     document.body.appendChild(alertBox);
 
-    // Animate the alert box using anime.js
     anime.timeline({
       targets: alertBox,
       easing: 'easeInOutQuad',
