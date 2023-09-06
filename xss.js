@@ -1,10 +1,1 @@
-"use strict";
-function sanitizeInput(input) {
-      return DOMPurify.sanitize(input);
-    }
-
-    function handleUserInput() {
-      const userInput = document.getElementById('user-input').value;
-      const sanitizedInput = sanitizeInput(userInput);
-      document.getElementById('output').innerHTML = sanitizedInput;
-    }
+function sanitizeInput(n){return DOMPurify.sanitize(n)}function handleUserInput(){let n=document.getElementById("user-input").value,t=sanitizeInput(n);document.getElementById("output").innerHTML=t}
