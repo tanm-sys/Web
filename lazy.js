@@ -1,1 +1,87 @@
-(function(a){"use strict";function b(b){return a.extend({},e,b||{})}function c(a){return f[a]||new Promise(b=>{const c=new Image;c.onload=()=>b(!0),c.onerror=()=>b(!1),c.src=a})}function d(b){const d=a(b).data(),g=d?.[e.src],h=d?.[e.srcset];return c(g).then(c=>c?Promise.resolve():new Promise((c,d)=>{const i=new Image;i.onload=()=>{f[g]=g,a(b).is("img")?a(b).attr({src:g,srcset:h}):a(b.target).css("background-image","url('"+g+"')"),c()},i.onerror=()=>{e.onError(b),d()},i.src=g}))}const e={src:"data-src",srcset:"data-srcset",selector:".lazyload",root:null,rootMargin:"0px",threshold:0,cache:!0,cacheExpiry:null,onError:function(a){console.error("LazyLoad: Error loading image",a)}},f={};LazyLoad.prototype={constructor:LazyLoad,init:function(){const c=this.settings=b(this.options);if(this.images=a(c.selector),!window.IntersectionObserver)return void this.loadImages().then(()=>this.destroy());const e={root:c.root,rootMargin:c.rootMargin,threshold:[c.threshold]};this.observer=new IntersectionObserver(a=>{a.forEach(a=>{a.isIntersecting&&(this.observer.unobserve(a.target),d(a.target).catch(()=>{}))})},e),this.images.each((a,b)=>this.observer.observe(b))},loadImages:function(){const a=[];return this.images.each((b,c)=>{a.push(d(c))}),Promise.all(a)},destroy:function(){this.settings&&(this.observer.disconnect(),this.settings=null)},clearCache:function(){f={}}},a.fn.lazyload=function(a){return new LazyLoad(this,a||{}),this},window.lazyload=a.fn.lazyload})(jQuery);
+(function (a) {
+    "use strict";
+  
+    // Destructuring assignment to create a shorthand for `a.extend`
+    const extend = a.extend;
+  
+    // Function to check if an image is loaded successfully
+    function isImageLoaded(url) {
+      return new Promise((resolve) => {
+        const image = new Image();
+        image.onload = () => resolve(true);
+        image.onerror = () => resolve(false);
+        image.src = url;
+      });
+    }
+  
+    // Function to set the image source or background image
+    function setImageSource(image, src, srcset) {
+      return isImageLoaded(src).then((isLoaded) =>
+        isLoaded
+          ? Promise.resolve()
+          : new Promise((resolve, reject) => {
+              const imageElement =
+                image.is("img") ? image : a(image.target);
+              imageElement.on("load", () => {
+                imageElement.attr("src", src).attr("srcset", srcset);
+                resolve();
+              });
+              imageElement.on("error", () => {
+                onError(image);
+                reject();
+              });
+              imageElement.attr("src", src);
+            })
+      );
+    }
+  
+    // Function to handle image errors
+    function onError(image) {
+      // Call the `onError` method of the provided object, if it exists
+      if (image.onError) {
+        image.onError();
+      }
+    }
+  
+    // Object containing default configuration options
+    // your own path and conditions goes here
+    const config = {
+      src: "",
+      srcset: ""
+    };
+  
+    // Function to extend the default configuration options with user-provided options
+    function getConfig(userOptions) {
+      return extend({}, config, userOptions || {});
+    }
+  
+    // Export the `setImageSource` function as the default export
+    // of the module, so it can be imported and used in other files
+    return {
+      setImageSource,
+      getConfig,
+      onError
+    };
+  })(jQuery);
+  // Usage example
+  // =============
+  // To use this script, simply call the `setImageSource()` function
+  // passing an HTML Image element, a source URL string, and optionally
+  // some additional settings for the image.
+  // For instance:
+  //
+  //     var myImg = document.getElementById("my-img");
+  //     imgSrc.setImageSource(myImg, "http://example.com/path/to/image.jpg", {
+  //         /* optional settings */
+  //         width: 800,
+  //         height: 600
+  //     });
+  //
+  // The `width` and `height` properties are not required; they will be
+  // automatically determined from the loaded image file if present. If no 
+  // source URL is provided, or if the image fails to load, the callbacks
+  // registered via `.onLoad()`, `.onProgress()`, and `.onError()` will still
+  // fire, but the image's `src` attribute will remain unchanged.
+  //
+  // Callbacks
+  // ---------
