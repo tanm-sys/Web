@@ -1,1 +1,0 @@
-$(document).ready(function(){$(window).on("load",function(){setTimeout(function(){$(".loader").fadeOut("slow",function(){$(this).remove()}),$("body").css("overflow","visible"),$(".content").fadeIn("slow")},2e3)})});
