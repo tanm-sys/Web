@@ -1,17 +1,41 @@
-import DOMPurify from 'dompurify'; //DOMPurify function, which is used to sanitize HTML input.
+import DOMPurify from "dompurify";
 
-const inputField = document.getElementById('user-input'); //code then retrieves the input field and output field elements from the HTML document using the document.getElementById() method.
-const outputField = document.getElementById('output'); 
+const inputField = DOMPurify.sanitize(document.getElementById("user-input"));
+const outputField = document.getElementById("output");
 
 function sanitize(input) {
-  return DOMPurify.sanitize(input); //The sanitize() function takes an input string and returns a sanitized version of the string using the DOMPurify.sanitize() method.
+  return DOMPurify.sanitize(input);
 }
 
 function displayUserInput() {
-  const userInput = inputField.value;
-  const sanitizedInput = sanitize(userInput);
-  outputField.textContent = sanitizedInput; // use textContent instead of innerHTML for better security
+  const userInput = sanitize(inputField.value);
+  outputField.textContent = userInput;
+  inputField.value = ""; // Clear the input field after displaying the user's input
 }
 
-inputField.addEventListener('input', displayUserInput);
-//Overall, this code is a simple example of how to use the DOMPurify library to sanitize user input and prevent XSS attacks in web applications.
+inputField.addEventListener("input", displayUserInput);
+
+function handleError(error) {
+  console.error(error); // Log any errors that occur during sanitization
+}
+
+// Add error handling to the sanitize function
+function sanitize(input) {
+  try {
+    return DOMPurify.sanitize(input);
+  } catch (error) {
+    handleError(error);
+  }
+}
+
+// Handle edge cases
+function displayUserInput() {
+  const userInput = sanitize(inputField.value);
+  if (userInput === "") {
+    // Handle the case where the user enters a blank string
+    outputField.textContent = "";
+  } else {
+    outputField.textContent = userInput;
+    inputField.value = ""; // Clear the input field after displaying the user's input
+  }
+}
